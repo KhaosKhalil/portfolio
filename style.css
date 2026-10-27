@@ -1,0 +1,242 @@
+/* Reset e estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0a0a0a;
+  color: #e5e5e5;
+  line-height: 1.6;
+}
+
+/* Cabeçalho e menu */
+header {
+  background-color: rgba(10, 10, 10, 0.95);
+  border-bottom: 1px solid #262626;
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.logo {
+  color: #d4af37;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #a3a3a3;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #d4af37;
+}
+
+/* Conteúdo e cartões */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 130px 20px 60px 20px;
+}
+
+.card {
+  background-color: #121212;
+  border: 1px solid #262626;
+  padding: 35px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  scroll-margin-top: 100px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.card:hover {
+  border-color: #d4af37;
+  transform: translateY(-2px);
+}
+
+.apresentacao-conteudo {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  align-items: start;
+  gap: 30px;
+}
+
+.foto-perfil {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  object-position: 40% center;
+  border-radius: 12px;
+}
+
+.api-projeto {
+  padding: 20px;
+  margin: 25px 0;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  background-color: #0e0e0e;
+}
+
+.texto-a-preencher {
+  color: #d4af37;
+}
+
+/* Títulos e textos */
+h1 {
+  color: #ffffff;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #d4af37;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #262626;
+  padding-bottom: 10px;
+}
+
+h3 {
+  color: #f3c623;
+  font-size: 1.2rem;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.subtitulo {
+  color: #d4af37;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #a3a3a3;
+  margin-bottom: 15px;
+  font-size: 0.98rem;
+}
+
+/* Tags de tecnologias */
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.tag {
+  background-color: #1a1a1a;
+  color: #d4af37;
+  border: 1px solid #333333;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+/* Botões e links de ação */
+.btn-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: transparent;
+  color: #d4af37;
+  border: 1px solid #d4af37;
+  padding: 10px 22px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #d4af37;
+  color: #0a0a0a;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 25px;
+  background-color: #000000;
+  color: #666666;
+  border-top: 1px solid #1a1a1a;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 760px) {
+  /* Ajustes do menu e espaçamento para telas menores */
+  header {
+    padding: 15px 0;
+  }
+
+  nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+    gap: 10px 18px;
+  }
+
+  main {
+    padding-top: 210px;
+  }
+
+  .card {
+    scroll-margin-top: 200px;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Apresentação em coluna e cartões mais compactos no celular */
+  .card {
+    padding: 24px 20px;
+  }
+
+  .apresentacao-conteudo {
+    grid-template-columns: 1fr;
+  }
+
+  .foto-perfil {
+    width: 150px;
+    height: 150px;
+  }
+}
