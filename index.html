@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
+<!-- HEAD: informações da página que não aparecem na tela -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio | FATEC DSM</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8"> <!-- permite acentos (ç, ã, é) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- faz o site se ajustar ao celular -->
+  <title>Portfólio | Khalil Ayoub</title> <!-- texto que aparece na aba do navegador -->
+  <link rel="stylesheet" href="style.css"> <!-- liga o arquivo de estilos (cores, tamanhos) -->
+  <!-- Font Awesome: biblioteca de ícones (HTML, Python, GitHub...) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
+<!-- BODY: tudo o que aparece na tela -->
 <body>
+
+  <!-- MENU NO TOPO -->
+  <!-- Cada link "#nome" leva até a seção que tem id="nome" -->
   <header>
     <nav>
       <a class="logo" href="#apresentacao">PORTFÓLIO</a>
@@ -15,47 +23,51 @@
         <li><a href="#apresentacao">Apresentação</a></li>
         <li><a href="#projetos-api">Projetos API</a></li>
         <li><a href="#outros-projetos">Profissionais e Pessoais</a></li>
-        <li><a href="#informacoes-curriculares">Informações Curriculares</a></li>
+        <li><a href="#curriculo">Informações Curriculares</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- CONTEÚDO PRINCIPAL: cada <section> é uma caixa (card) -->
   <main>
-    
-    <section id="apresentacao" class="card">
-      <div class="apresentacao-conteudo">
-        <img class="foto-perfil" src="./imagens/foto-khalil.png" alt="Foto de Khalil Ayoub">
-        <div>
-          <h1>Khalil Ayoub</h1>
-          <div class="subtitulo">Desenvolvimento de Software Multiplataforma — FATEC São José dos Campos</div>
 
-          <p>
-            Olá! Sou estudante de Desenvolvimento de Software Multiplataforma.
-            Tenho interesse em desenvolvimento web, engenharia de software e resolução de problemas reais com tecnologia.
-          </p>
+    <!-- 1. APRESENTAÇÃO: foto do lado esquerdo, texto do lado direito -->
+    <section id="apresentacao" class="card apresentacao">
+      <img class="foto-perfil" src="imagens/foto-khalil.png" alt="Foto de Khalil Ayoub"> <!-- alt = descrição da imagem -->
 
-          <p class="texto-a-preencher">
-            <strong>Meus objetivos:</strong> Adquirir conhecimentos em desenvolvimento de software e contribuir para projetos que impactem positivamente.
-          </p>
+      <div class="apresentacao-texto">
+        <h1>Khalil Ayoub</h1>
+        <p class="subtitulo">Desenvolvimento de Software Multiplataforma — FATEC São José dos Campos</p>
 
-          <div class="tags" aria-label="Tecnologias e conhecimentos">
-            <span class="tag"><i class="fa-brands fa-html5"></i> HTML</span>
-            <span class="tag">Flask</span>
-            <span class="tag"><i class="fa-brands fa-aws"></i> AWS</span>
-            <span class="tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
-            <span class="tag"> <i class="fa-brands fa-github"></i> Git & GitHub</span>
-            <span class="tag"><i class="fa-brands fa-python"></i> Python</span>
-          </div>
+        <p>
+          Olá! Sou estudante de Desenvolvimento de Software Multiplataforma.
+          Tenho interesse em desenvolvimento web, engenharia de software e resolução de problemas reais com tecnologia.
+        </p>
+
+        <p class="destaque">
+          <strong>Meus objetivos:</strong> Adquirir conhecimentos em desenvolvimento de software e contribuir para projetos que impactem positivamente.
+        </p>
+
+        <!-- Tags das tecnologias. O <i> é o ícone do Font Awesome -->
+        <div class="tags">
+          <span class="tag"><i class="fa-brands fa-html5"></i> HTML</span>
+          <span class="tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+          <span class="tag"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="tag"><i class="fa-solid fa-flask"></i> Flask</span>
+          <span class="tag"><i class="fa-brands fa-aws"></i> AWS</span>
+          <span class="tag"><i class="fa-brands fa-github"></i> Git & GitHub</span>
         </div>
       </div>
     </section>
 
+    <!-- 2. PROJETOS API -->
     <section id="projetos-api" class="card">
       <h2>Projetos API (FATEC)</h2>
       <p>Projeto desenvolvido em equipe no 1º semestre de 2026 para a disciplina de API.</p>
 
-      <article class="api-projeto">
+      <!-- <article> = um projeto. <strong> = texto em negrito -->
+      <article class="projeto">
         <h3>Negado pelo Banco — Crédito Inclusivo com Dados do BCB</h3>
         <p><strong>Cliente:</strong> Fernando Massanori. O projeto não teve empresa parceira.</p>
         <p><strong>Problema:</strong> algumas populações têm dificuldade para acessar crédito porque os dados tradicionais de análise não mostram completamente seu consumo e sua capacidade de pagamento.</p>
@@ -63,31 +75,30 @@
         <p><strong>Solução:</strong> aplicação que analisa indicadores por região e calcula um Score de Oportunidade, permitindo que analistas filtrem e comparem territórios.</p>
         <p><strong>Tecnologias e dados:</strong> Google Colab, Python, Flask, HTML e CSS; dados públicos do BCB/BACEN, IBGE e Serasa.</p>
         <p><strong>Minhas contribuições pessoais:</strong> ajudei a definir os filtros disponíveis, como região, período e tipo de dívida, e desenvolvi campos de seleção para o usuário escolher esses critérios. Também trabalhei na interface navegável da tela de Filtros Salvos.</p>
-        <div class="btn-group">
-          <a href="https://github.com/fatec-sjc-404-team/API-DSM-1SEMESTRE-2026" target="_blank" rel="noopener noreferrer" class="btn">
-            Ver repositório da equipe no GitHub
-          </a>
+
+        <!-- target="_blank" = abre o link numa aba nova -->
+        <div class="botoes">
+          <a class="btn" href="https://github.com/fatec-sjc-404-team/API-DSM-1SEMESTRE-2026" target="_blank">Ver repositório da equipe no GitHub</a>
         </div>
       </article>
     </section>
 
+    <!-- 3. PROJETOS PROFISSIONAIS E PESSOAIS -->
     <section id="outros-projetos" class="card">
       <h2>Projetos Profissionais & Pessoais</h2>
-      <article class="api-projeto">
+
+      <article class="projeto">
         <h3>Site BLXCK — trabalho acadêmico</h3>
         <p>Site sobre o artista Blxck e o projeto musical ARQUIVO X, desenvolvido como trabalho de uma disciplina da FATEC, fora do projeto API.</p>
-        <div class="btn-group">
-          <a href="https://khaoskhalil.github.io/repositorio-site-Blxck/" target="_blank" rel="noopener noreferrer" class="btn">
-            Ver projeto publicado
-          </a>
-          <a href="https://github.com/KhaosKhalil/repositorio-site-Blxck" target="_blank" rel="noopener noreferrer" class="btn">
-            Ver código no GitHub
-          </a>
+        <div class="botoes">
+          <a class="btn" href="https://khaoskhalil.github.io/repositorio-site-Blxck/" target="_blank">Ver projeto publicado</a>
+          <a class="btn" href="https://github.com/KhaosKhalil/repositorio-site-Blxck" target="_blank">Ver código no GitHub</a>
         </div>
       </article>
     </section>
 
-    <section id="informacoes-curriculares" class="card">
+    <!-- 4. INFORMAÇÕES CURRICULARES -->
+    <section id="curriculo" class="card">
       <h2>Informações Curriculares</h2>
 
       <h3>Formação</h3>
@@ -100,20 +111,23 @@
       <p><strong>Administração</strong> — ETEC, 2025.</p>
     </section>
 
+    <!-- 5. CONTATO -->
     <section id="contato" class="card">
       <h2>Contato</h2>
-      <p>Atualize os endereços abaixo para que as pessoas possam entrar em contato e acessar seus perfis:</p>
+      <p>Fique à vontade para entrar em contato ou conhecer meus perfis:</p>
 
-      <div class="btn-group">
-        <a href="https://github.com/KhaosKhalil" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
-        <a href="https://www.linkedin.com/in/khalil-ayoub-083767429/" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
-        <a href="mailto:kkhalilkrayem@gmail.com" class="btn">kkhalilkrayem@gmail.com</a>
+      <!-- mailto: abre o programa de e-mail já com o endereço preenchido -->
+      <div class="botoes">
+        <a class="btn" href="https://github.com/KhaosKhalil" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/khalil-ayoub-083767429/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a class="btn" href="mailto:kkhalilkrayem@gmail.com"><i class="fa-solid fa-envelope"></i> kkhalilkrayem@gmail.com</a>
       </div>
     </section>
   </main>
 
+  <!-- RODAPÉ -->
   <footer>
-    <p>© 2026 FATEC São José dos Campos — DSM | Portfólio Acadêmico</p>
+    <p>© 2026 Khalil Ayoub — FATEC São José dos Campos | DSM</p>
   </footer>
 </body>
 </html>

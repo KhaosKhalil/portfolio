@@ -1,242 +1,242 @@
-/* Reset e estilos globais */
+/* =========================================================
+   1. CORES DO SITE (variáveis)
+   Defino as cores uma vez aqui e uso com var(--nome).
+   Se eu mudar uma cor aqui, ela muda no site inteiro.
+   ========================================================= */
+:root {
+  --dourado: #d4af37;       /* cor principal: títulos, botões, tags */
+  --dourado-claro: #f3c623; /* subtítulos (h3) */
+  --fundo: #0a0a0a;         /* fundo da página (quase preto) */
+  --cartao: #121212;        /* fundo das caixas (cards) */
+  --borda: #262626;         /* cor das bordas */
+  --texto: #a3a3a3;         /* cor dos parágrafos (cinza) */
+}
+
+/* =========================================================
+   2. RESET
+   O navegador coloca margens e espaços sozinho.
+   Aqui eu zero tudo para começar do mesmo jeito em qualquer navegador.
+   ========================================================= */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;              /* tira o espaço de fora */
+  padding: 0;             /* tira o espaço de dentro */
+  box-sizing: border-box; /* a largura da caixa já inclui borda e padding */
+}
+
+html {
+  scroll-behavior: smooth; /* rolagem suave ao clicar nos links do menu */
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0a0a0a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* fonte do site */
+  background-color: var(--fundo);
   color: #e5e5e5;
-  line-height: 1.6;
+  line-height: 1.6; /* espaço entre as linhas do texto */
 }
 
-/* Cabeçalho e menu */
+/* =========================================================
+   3. MENU NO TOPO
+   ========================================================= */
 header {
-  background-color: rgba(10, 10, 10, 0.95);
-  border-bottom: 1px solid #262626;
-  padding: 20px 0;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(8px);
+  position: sticky; /* o menu fica preso no topo enquanto a página rola */
+  top: 0;           /* preso a 0px do topo */
+  z-index: 100;     /* fica por cima do resto do conteúdo */
+  background-color: rgba(10, 10, 10, 0.95); /* preto quase opaco */
+  border-bottom: 1px solid var(--borda);
+  padding: 20px;
 }
 
 nav {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 0 20px;
+  max-width: 1000px;  /* largura máxima do menu */
+  margin: 0 auto;     /* centraliza na tela */
+  display: flex;      /* coloca logo e links lado a lado */
+  flex-wrap: wrap;    /* se não couber, passa para a linha de baixo */
+  justify-content: space-between; /* logo na esquerda, links na direita */
+  align-items: center;            /* alinha no meio na vertical */
+  gap: 10px 20px;     /* espaço entre os itens */
 }
 
 .logo {
-  color: #d4af37;
-  font-weight: 700;
+  color: var(--dourado);
+  font-weight: 700;      /* negrito */
   font-size: 1.3rem;
-  letter-spacing: 1px;
-  text-decoration: none;
-  white-space: nowrap;
+  letter-spacing: 1px;   /* espaço entre as letras */
+  text-decoration: none; /* tira o sublinhado do link */
 }
 
 .nav-links {
-  list-style: none;
-  display: flex;
+  list-style: none; /* tira as bolinhas da lista */
+  display: flex;    /* links lado a lado */
   flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 25px;
+  gap: 10px 25px;
 }
 
 .nav-links a {
-  color: #a3a3a3;
+  color: var(--texto);
   text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.3s;
+  transition: color 0.3s; /* a cor muda devagar (0,3 segundo) */
 }
 
-.nav-links a:hover {
-  color: #d4af37;
+.nav-links a:hover { /* :hover = quando o mouse passa por cima */
+  color: var(--dourado);
 }
 
-/* Conteúdo e cartões */
+/* =========================================================
+   4. CONTEÚDO E CARDS (as caixas de cada seção)
+   ========================================================= */
 main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 130px 20px 60px 20px;
+  max-width: 900px;       /* conteúdo não fica largo demais */
+  margin: 0 auto;         /* centraliza na tela */
+  padding: 40px 20px 60px; /* cima, lados, baixo */
 }
 
 .card {
-  background-color: #121212;
-  border: 1px solid #262626;
-  padding: 35px;
-  border-radius: 12px;
-  margin-bottom: 40px;
-  scroll-margin-top: 100px;
-  transition: border-color 0.3s, transform 0.3s;
+  background-color: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 12px;     /* cantos arredondados */
+  padding: 35px;           /* espaço de dentro */
+  margin-bottom: 40px;     /* espaço entre um card e outro */
+  scroll-margin-top: 100px; /* ao clicar no menu, para abaixo do menu fixo */
+  transition: border-color 0.3s, transform 0.3s; /* animação suave do hover */
 }
 
 .card:hover {
-  border-color: #d4af37;
-  transform: translateY(-2px);
+  border-color: var(--dourado);  /* borda fica dourada */
+  transform: translateY(-2px);   /* card sobe 2px */
 }
 
-.apresentacao-conteudo {
-  display: grid;
-  grid-template-columns: 170px minmax(0, 1fr);
-  align-items: start;
+/* Foto ao lado do texto na seção Apresentação */
+.apresentacao {
+  display: flex;   /* foto e texto lado a lado */
+  flex-wrap: wrap; /* no celular o texto vai para baixo da foto */
   gap: 30px;
+}
+
+.apresentacao-texto {
+  flex: 1;          /* o texto ocupa o espaço que sobrar */
+  min-width: 250px; /* se ficar menor que isso, desce para baixo da foto */
 }
 
 .foto-perfil {
   width: 170px;
   height: 170px;
-  object-fit: cover;
-  object-position: 40% center;
+  object-fit: cover;          /* corta a foto sem esticar */
+  object-position: 40% center; /* escolhe qual parte da foto aparece */
   border-radius: 12px;
 }
 
-.api-projeto {
-  padding: 20px;
-  margin: 25px 0;
-  border: 1px solid #333333;
-  border-radius: 8px;
+/* Caixa de cada projeto, dentro do card */
+.projeto {
   background-color: #0e0e0e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 25px;
 }
 
-.texto-a-preencher {
-  color: #d4af37;
-}
-
-/* Títulos e textos */
-h1 {
-  color: #ffffff;
+/* =========================================================
+   5. TÍTULOS E TEXTOS
+   ========================================================= */
+h1 { /* meu nome */
+  color: #fff;
   font-size: 2.2rem;
   margin-bottom: 10px;
 }
 
-h2 {
-  color: #d4af37;
+h2 { /* título de cada seção */
+  color: var(--dourado);
   font-size: 1.6rem;
   margin-bottom: 20px;
-  border-bottom: 1px solid #262626;
   padding-bottom: 10px;
+  border-bottom: 1px solid var(--borda); /* linha embaixo do título */
 }
 
-h3 {
-  color: #f3c623;
+h3 { /* subtítulos dentro das seções */
+  color: var(--dourado-claro);
   font-size: 1.2rem;
-  margin-top: 15px;
-  margin-bottom: 8px;
-}
-
-.subtitulo {
-  color: #d4af37;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 15px;
+  margin: 15px 0 8px; /* cima, lados, baixo */
 }
 
 p {
-  color: #a3a3a3;
-  margin-bottom: 15px;
+  color: var(--texto);
   font-size: 0.98rem;
+  margin-bottom: 15px; /* espaço depois de cada parágrafo */
 }
 
-/* Tags de tecnologias */
-.tags {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+.subtitulo { /* curso e faculdade, embaixo do nome */
+  color: var(--dourado);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.destaque { /* parágrafo "Meus objetivos" */
+  color: var(--dourado);
+}
+
+/* =========================================================
+   6. TAGS (tecnologias) E BOTÕES
+   ========================================================= */
+.tags,
+.botoes { /* as duas listas usam a mesma regra */
+  display: flex;   /* itens lado a lado */
+  flex-wrap: wrap; /* se não couber, quebra a linha */
+  gap: 10px 15px;
   margin-top: 20px;
 }
 
 .tag {
   background-color: #1a1a1a;
-  color: #d4af37;
-  border: 1px solid #333333;
+  color: var(--dourado);
+  border: 1px solid #333;
+  border-radius: 20px; /* formato de pílula */
   padding: 5px 12px;
-  border-radius: 20px;
   font-size: 0.85rem;
 }
 
-/* Botões e links de ação */
-.btn-group {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
 .btn {
-  display: inline-block;
-  background-color: transparent;
-  color: #d4af37;
-  border: 1px solid #d4af37;
-  padding: 10px 22px;
-  text-decoration: none;
+  color: var(--dourado);
+  border: 1px solid var(--dourado); /* só a borda dourada, fundo vazio */
   border-radius: 6px;
+  padding: 10px 22px;
   font-size: 0.9rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-.btn:hover {
-  background-color: #d4af37;
-  color: #0a0a0a;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+.btn:hover { /* com o mouse em cima, o botão fica preenchido */
+  background-color: var(--dourado);
+  color: var(--fundo);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); /* brilho dourado em volta */
 }
 
-/* Rodapé */
+/* =========================================================
+   7. RODAPÉ
+   ========================================================= */
 footer {
   text-align: center;
   padding: 25px;
-  background-color: #000000;
-  color: #666666;
+  background-color: #000;
   border-top: 1px solid #1a1a1a;
   font-size: 0.85rem;
 }
 
+/* =========================================================
+   8. CELULAR (responsivo)
+   @media = essas regras só valem quando a tela é pequena.
+   ========================================================= */
+
+/* Telas até 760px: o menu fica mais alto, então o card para mais abaixo */
 @media (max-width: 760px) {
-  /* Ajustes do menu e espaçamento para telas menores */
-  header {
-    padding: 15px 0;
-  }
-
-  nav {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .nav-links {
-    justify-content: flex-start;
-    gap: 10px 18px;
-  }
-
-  main {
-    padding-top: 210px;
-  }
-
   .card {
     scroll-margin-top: 200px;
   }
 }
 
+/* Telas até 520px (celular): cards com menos espaço por dentro */
 @media (max-width: 520px) {
-  /* Apresentação em coluna e cartões mais compactos no celular */
   .card {
     padding: 24px 20px;
-  }
-
-  .apresentacao-conteudo {
-    grid-template-columns: 1fr;
-  }
-
-  .foto-perfil {
-    width: 150px;
-    height: 150px;
   }
 }
